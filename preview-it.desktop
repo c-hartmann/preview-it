@@ -89,4 +89,4 @@ Name[wa]=Prévoeyaedje	F12
 Name[zh_CN]=预览图	F12
 Name[zh_TW]=預覽	F12
 Icon=view-preview-symbolic
-Exec=bash -c 'qdbus_avail=($(type -p qdbus qdbus6 qdbus5 qdbus-qt6 qdbus-qt5)); qdbus=${qdbus_avail[0]}; [[ -z "${qdbus}" ]] && kdialog --error "qdbus command not found" && exit 1; for sname in $(${qdbus} "org.kde.dolphin-*") ; do isactive=false ; isactive=$(${qdbus} "${sname}" "/dolphin/Dolphin_1" "org.qtproject.Qt.QWidget.isActiveWindow") ; $isactive && ${qdbus} "${sname}" /dolphin/Dolphin_1/actions/show_preview org.qtproject.Qt.QAction.trigger ; done'
+Exec=bash -c 'qdbus_avails=($(type -p qdbus qdbus6 qdbus5 qdbus-qt6 qdbus-qt5)); qdbus=${qdbus_avails[0]}; [[ -z "${qdbus}" ]] && kdialog --error "qdbus command not found" && exit 1; for sname in $(${qdbus} "org.kde.dolphin-*") ; do isactive=false ; isactive=$(${qdbus} "${sname}" "/dolphin/Dolphin_1" "org.qtproject.Qt.QWidget.isActiveWindow") ; $isactive && ${qdbus} "${sname}" /dolphin/Dolphin_1/actions/show_preview org.qtproject.Qt.QAction.trigger ; done'
